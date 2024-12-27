@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery manipulasi dokumen html</title>
+</head>
+<body>
+    
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo minus alias aliquid. Vitae sequi iure ea quis ullam corrupti repellat hic tenetur unde. Sint architecto doloribus, ex harum dignissimos praesentium.
+    </p>
+    <button class="klik">tampilkan text</button>
+
+    <script src="Jquery/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            $('.klik').hide()
+
+            $('p').on('click',function(){
+                $(this).hide(1000)
+                $('.klik').show(1000)
+            })
+            $(".klik").on('click',function(){
+                $('p').show(1000)
+                $(this).hide()
+            })
+        })
+
+    </script>
+</body>
+</html>

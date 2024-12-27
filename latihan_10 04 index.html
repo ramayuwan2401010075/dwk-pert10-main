@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery ganti text</title>
+</head>
+<body>
+    
+    <p id="view">ketik</p> 
+    <input type="text" id="txganti">
+    <button id="cmdganti">ganti text</button>
+
+    <script src="Jquery/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            $('#view').html("<strong>astungkara sugih</strong>")
+
+            $('#cmdganti').on('click', function(){
+                let txbaru=$("#txganti").val()
+                $('#view').html(txbaru)
+            })
+
+        })
+    </script>
+</body>
+</html>
