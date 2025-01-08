@@ -8,6 +8,15 @@
   </head>
   <body>
     <h1>Tambah Data</h1>
+    <a href="latihan_13 01 index.html">data</a>
+
+      <div class="alert alert-info" role="alert" id="inf1">
+        A simple info alert—check it out!
+      </div>
+      <div class="alert alert-danger" role="alert" id="inf2">
+        aaaaaaaaa
+      </div>
+
     <span id="newtesti">
         <form id="fTesti" method="post">
             <input type="hidden" name="NIM" value="2401010075">
@@ -31,5 +40,40 @@
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/testimoni.js"></script>
+    <script>
+        var nim="2401010075"
+        var urlAPI="https://apimhstiki.ptov.my.id/"
+        var urlREAD= urlAPI+"testi"
+
+        $("#inf1").hide()
+        $("#inf2").hide()
+
+        $("#fTesti").on("submit", function(ev){
+            ev.preventDefault()
+            let dtTesti = $(this).serialize()
+            $.ajax({
+                url:urlREAD,
+                method: "POST",
+                dataType: "json",
+                data: dtTesti,
+                success: function(dt){
+                    if(dt.error==0){
+                        console.log("data berhasil di simpan")
+                        $("#inf1").show()
+                        $("#inf1").html("data berhasil disimpan")
+                    }else{
+                        console.log("terjadi kegagalan menyimpan data di serer")
+                        $("#inf2").show()
+                        $("#inf2").html("terjadi kegegalan menyimpan data di server")
+                    }
+                },
+                error: function(){
+                 console.log("terjadi kegegalan dalam pengiriman data")
+                 $("#inf2").show()
+                 $("#inf2").html("terjadi kegegalan menyimpan data di server")
+                }
+            })
+        })
+       
+    </script>
 </html>
